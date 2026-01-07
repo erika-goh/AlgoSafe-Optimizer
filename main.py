@@ -18,7 +18,7 @@ print("User Profile:", profile)
 best_rule = optimize_fraud_rule(transactions, profile) #runs the Genetic Algorithm to find the smartest fraud detection rule for specific banking habits
 print("Optimized Fraud Rule (weights):", [round(w, 2) for w in best_rule]) #finds the best weights for amount, location, time of day
 
-best_route, min_risk, risks = optimize_route() # runs the Particle Swarm Optimization algorithm to find the safest possible path for money to travel through the banking network
+best_route, min_risk, risks = optimize_route(seed=42) # runs the Particle Swarm Optimization algorithm to find the safest possible path for money to travel through the banking network
 initial_risk = sum(risks)  #total initial risk across all nodes
 reduction_percent = (initial_risk - min_risk) / initial_risk * 100 if initial_risk > 0 else 0 #risk reduction calculation
 
