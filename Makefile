@@ -21,7 +21,7 @@ upgrade-pip: $(VENV)/bin/activate
 
 .PHONY: run
 run: install
-	$(PYTHON) algosafe-optimizer.py
+	$(PYTHON) main.py
 
 .PHONY: clean
 clean:
