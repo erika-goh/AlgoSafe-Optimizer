@@ -20,7 +20,11 @@ class Particle:
 def route_fitness(route, risks):
     return sum(risks[node] for node in route)
 
-def optimize_route():
+def optimize_route(seed=None):
+    if seed is not None:
+        np.random.seed(seed)  #seed NumPy
+        random.seed(seed)     #seed Python's random
+
     risks = np.random.uniform(0, 1, NODES)  #simulated risk per node
     
     swarm = [Particle() for _ in range(SWARM_SIZE)]
